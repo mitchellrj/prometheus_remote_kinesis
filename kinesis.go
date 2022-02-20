@@ -48,6 +48,8 @@ func newWriter(config Config) *kinesisWriter {
 		cred := credentials.NewEnvCredentials()
 		awsConfig = awsConfig.WithCredentials(cred)
 	}
+	compressingClient := getCompressingHttpClient()
+	awsConfig.WithHTTPClient(compressingClient)
 
 	svc := session.Must(session.NewSessionWithOptions(session.Options{
 		Config: *awsConfig,

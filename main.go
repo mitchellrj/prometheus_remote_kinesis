@@ -32,7 +32,7 @@ type recordWriter interface {
 
 func initLogger() {
 	level := zap.NewAtomicLevel()
-	level.SetLevel(zapcore.DebugLevel)
+	level.SetLevel(zapcore.InfoLevel)
 
 	zapConfig := zap.Config{
 		Level:    level,
